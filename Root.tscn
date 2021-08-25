@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Root.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 37, 60 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 150.835, 60 )
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Acerto1" type="Area2D" parent="."]
+position = Vector2( 37.8174, 451.535 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Acerto1"]
+shape = SubResource( 1 )
+
+[node name="Acerto2" type="Area2D" parent="."]
+position = Vector2( 113.482, 450.785 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Acerto2"]
+shape = SubResource( 1 )
+
+[node name="Acerto3" type="Area2D" parent="."]
+position = Vector2( 188.397, 450.036 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Acerto3"]
+shape = SubResource( 1 )
+
+[node name="Acerto4" type="Area2D" parent="."]
+position = Vector2( 262.563, 452.284 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Acerto4"]
+shape = SubResource( 1 )
+
+[node name="Errou" type="Area2D" parent="."]
+position = Vector2( 149.474, 591.498 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Errou"]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 12.9277
+margin_top = 63.2906
+margin_right = 175.928
+margin_bottom = 125.291
+rect_scale = Vector2( 3.4537, 6.51635 )
+text = "PERDEU PO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="Acerto1" to="." method="_on_Acerto1_body_entered"]
+[connection signal="body_exited" from="Acerto1" to="." method="_on_Acerto1_body_exited"]
+[connection signal="body_entered" from="Acerto2" to="." method="_on_Acerto2_body_entered"]
+[connection signal="body_exited" from="Acerto2" to="." method="_on_Acerto2_body_exited"]
+[connection signal="body_entered" from="Acerto3" to="." method="_on_Acerto3_body_entered"]
+[connection signal="body_exited" from="Acerto3" to="." method="_on_Acerto3_body_exited"]
+[connection signal="body_entered" from="Acerto4" to="." method="_on_Acerto4_body_entered"]
+[connection signal="body_exited" from="Acerto4" to="." method="_on_Acerto4_body_exited"]
+[connection signal="body_entered" from="Errou" to="." method="_on_Errou_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
